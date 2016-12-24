@@ -78,7 +78,7 @@ function MainCtrl(Credits,Terms,Who) {
 			alert('写下『描述』，记录下什么情况下加分（扣分）的？');
 			return false;
 		}
-		if(!_newCredit.who){
+		if(!_newCredit.scorer){
 			alert('『记录人』是谁？');
 			return false;
 		}
