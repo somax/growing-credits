@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Growing Credits</title>
+	<style>
+		.credits-table{
+			width: 100%;
+		}
+		.credits-table th{
+			background-color: #eee;
+		}
+		.credits-talbe td{
+			border:1px solid #ccc;
+		}
+		select, input{
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body ng-controller="MainCtrl as mc">
+	<h1>马小宝的 Growing Credits</h1>
+	<h2>当前积分：{{mc.balance}}</h2>
+<!-- 	
+	<p>
+		<h3>积分说明：</h3>
+		<ul>
+			<li ng-repeat="term in mc.terms">{{term.description}} {{term.score}}</li>
+		</ul>
+	</p> -->
+	<p>
+		可选积分规则
+		<select ng-model="mc.selectedTerm" ng-options="(term.description + ' (' + term.score +')') for term in mc.terms" ng-change="mc.onTermChange(mc.selectedTerm)"></select>
+
+        可选记录人：
+        <select ng-model="mc.newScorer" ng-options="scorer.name for scorer in mc.who" ng-change="mc.newCredit.scorer = mc.newScorer.name"></select>
+    </p>
+
+
+	<form ng-submit="mc.addCredit(mc.newCredit)">
+        <input type="text" ng-model="mc.newCredit.description" size="50" placeholder="描述">
+        <input type="number" ng-model="mc.newCredit.score" size="4" placeholder="分数">
+        <input type="text" ng-model="mc.newCredit.scorer" size="6" placeholder="记录人">
+        <input class="btn-primary" type="submit" value="记录">
+    </form>
+
+	<table class="credits-table">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>积分时间</th>
+				<th>记入分数</th>
+				<!-- <th>累计分数</th> -->
+				<th>说明</th>
+				<th>记录人</th></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="credit in mc.credits">
+			<td align="center">{{credit.id}}</td>
+			<td align="center">{{credit.createdTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
+			<td align="right">{{credit.score}}</td>
+			<td align="center">{{credit.description}}</td>
+			<td align="center">{{credit.scorer}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/app.js"></script>
+
+</body>
+</html>

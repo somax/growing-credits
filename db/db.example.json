@@ -1,0 +1,177 @@
+{
+  "terms": [
+    {
+      "description": "初始积分",
+      "score": 100,
+      "createdTime": 1482570569350,
+      "id": 1
+    },
+    {
+      "description": "考试成绩：平均分以上加分，(分数-平均分)/ 最高分-平均分 * 1000",
+      "score": "1000",
+      "createdTime": 1482570672345,
+      "id": 2
+    },
+    {
+      "description": "考试成绩：平均分以下减分，(平均分-分数)/ 平均分-最低分 * -1000",
+      "score": "-1000",
+      "createdTime": 1482570935912,
+      "id": 3
+    },
+    {
+      "description": "写字清晰工整奖励",
+      "score": "50",
+      "createdTime": 1482586908018,
+      "id": 4
+    },
+    {
+      "description": "写字退步，扣分",
+      "score": "-50",
+      "createdTime": 1482586938132,
+      "id": 5
+    },
+    {
+      "description": "学而思：优秀",
+      "score": "100",
+      "createdTime": 1482586980169,
+      "id": 6
+    },
+    {
+      "description": "学而思：良",
+      "score": "50",
+      "createdTime": 1482586987167,
+      "id": 7
+    },
+    {
+      "description": "学而思：不合格",
+      "score": "-100",
+      "createdTime": 1482587001901,
+      "id": 8
+    },
+    {
+      "description": "学而思：优秀（连续3次奖励）",
+      "score": "500",
+      "createdTime": 1482587053112,
+      "id": 9
+    },
+    {
+      "description": "学而思：优秀（连续5次奖励）",
+      "score": "1000",
+      "createdTime": 1482587079897,
+      "id": 10
+    },
+    {
+      "description": "学而思：不合格（连续3次惩罚）",
+      "score": "-500",
+      "createdTime": 1482587160280,
+      "id": 11
+    },
+    {
+      "description": "学而思：不合格（连续5次惩罚）",
+      "score": "-1000",
+      "createdTime": 1482587167132,
+      "id": 12
+    },
+    {
+      "description": "自觉刷牙",
+      "score": "10",
+      "createdTime": 1482587225100,
+      "id": 13
+    },
+    {
+      "description": "忘记刷牙",
+      "score": "-10",
+      "createdTime": 1482587231771,
+      "id": 14
+    },
+    {
+      "description": "忘记关灯",
+      "score": "10",
+      "createdTime": 1482587238397,
+      "id": 15
+    },
+    {
+      "description": "忘记关灯",
+      "score": "-10",
+      "createdTime": 1482587245086,
+      "id": 16
+    },
+    {
+      "description": "主动家务劳动",
+      "score": "50",
+      "createdTime": 1482587279051,
+      "id": 17
+    },
+    {
+      "description": "主动家务劳动（小事）",
+      "score": "10",
+      "createdTime": 1482587316725,
+      "id": 18
+    },
+    {
+      "description": "洗车",
+      "score": "250",
+      "createdTime": 1482587340877,
+      "id": 19
+    },
+    {
+      "description": "忘记带重要物品",
+      "score": "-50",
+      "createdTime": 1482587374159,
+      "id": 20
+    },
+    {
+      "description": "自觉起床",
+      "score": "10",
+      "createdTime": 1482587386648,
+      "id": 21
+    }
+  ],
+  "credits": [
+    {
+      "description": "初始积分",
+      "score": 100,
+      "scorer": "爸爸",
+      "time": "2016-12-24T09:26:10.997Z",
+      "createdTime": 1482571600000,
+      "count": 888,
+      "id": 1
+    },
+    {
+      "description": "记得刷牙",
+      "score": 10,
+      "scorer": "爸爸",
+      "time": "2016-12-24T09:26:17.495Z",
+      "createdTime": 1482571577523,
+      "count": 888,
+      "id": 2
+    }
+  ],
+  "who": [
+    {
+      "name": "爸爸",
+      "createdTime": 1482584366000,
+      "id": 1
+    },
+    {
+      "name": "妈妈",
+      "createdTime": 1482584381170,
+      "id": 2
+    },
+    {
+      "name": "奶奶",
+      "createdTime": 1482584388179,
+      "id": 3
+    },
+    {
+      "name": "外婆",
+      "createdTime": 1482584393377,
+      "id": 4
+    },
+    {
+      "name": "马小宝",
+      "createdTime": 1482584414927,
+      "id": 5
+    }
+  ]
+}
