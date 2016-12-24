@@ -33,7 +33,7 @@ server.use('/lib',express.static('node_modules'))
 
 server.use('/api',router)
 
-let PORT = 3000
+let PORT = process.argv[2] || 3000;
 server.listen(PORT, function () {
   console.log(`Growing Credits Server is running at http://0.0.0.0:${PORT}`)
 })
