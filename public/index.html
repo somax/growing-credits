@@ -2,7 +2,9 @@
 <html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Growing Credits</title>
+
 	<style>
 		.credits-table{
 			width: 100%;
@@ -21,13 +23,7 @@
 <body ng-controller="MainCtrl as mc">
 	<h1>马小宝的 Growing Credits</h1>
 	<h2>当前积分：{{mc.balance}}</h2>
-<!-- 	
-	<p>
-		<h3>积分说明：</h3>
-		<ul>
-			<li ng-repeat="term in mc.terms">{{term.description}} {{term.score}}</li>
-		</ul>
-	</p> -->
+
 	<p>
 		可选积分规则
 		<select ng-model="mc.selectedTerm" ng-options="(term.description + ' (' + term.score +')') for term in mc.terms" ng-change="mc.onTermChange(mc.selectedTerm)"></select>
@@ -35,7 +31,6 @@
         可选记录人：
         <select ng-model="mc.newScorer" ng-options="scorer.name for scorer in mc.scorers" ng-change="mc.newCredit.scorer = mc.newScorer.name"></select>
     </p>
-
 
 	<form ng-submit="mc.addCredit(mc.newCredit)">
         <input type="text" ng-model="mc.newCredit.description" size="50" placeholder="描述">
