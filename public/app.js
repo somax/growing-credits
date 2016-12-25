@@ -2,7 +2,7 @@ angular.module('app', [])
 
 .service('Credits', Credits)
 .service('Terms', Terms)
-.service('Who', Who)
+.service('Scorers', Scorers)
 .controller('MainCtrl', MainCtrl)
 
 function Credits($http) {
@@ -27,21 +27,21 @@ function Terms($http) {
 		}
 	}
 }
-function Who($http) {
+function Scorers($http) {
 	return {
 		get: function (param) {
-			return $http.get('/api/who');
+			return $http.get('/api/scorers');
 		}
 	}
 }
 
-function MainCtrl(Credits,Terms,Who) {
+function MainCtrl(Credits,Terms,Scorers) {
 	var mc = this;
 
 	mc.newCredit = {
 		// score:100,
 		// description:"demo",
-		// who:"baba"
+		// Scorers:"baba"
 	}
 
 	// Credits.getBalance()
@@ -53,8 +53,8 @@ function MainCtrl(Credits,Terms,Who) {
 			mc.terms = _terms.data;
 	})
 
-	Who.get().then(function (_who) {
-		mc.who = _who.data;
+	Scorers.get().then(function (_scorers) {
+		mc.scorers = _scorers.data;
 	})
 
 	mc.onTermChange = function (_term) {

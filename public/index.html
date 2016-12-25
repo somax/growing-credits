@@ -33,7 +33,7 @@
 		<select ng-model="mc.selectedTerm" ng-options="(term.description + ' (' + term.score +')') for term in mc.terms" ng-change="mc.onTermChange(mc.selectedTerm)"></select>
 
         可选记录人：
-        <select ng-model="mc.newScorer" ng-options="scorer.name for scorer in mc.who" ng-change="mc.newCredit.scorer = mc.newScorer.name"></select>
+        <select ng-model="mc.newScorer" ng-options="scorer.name for scorer in mc.scorers" ng-change="mc.newCredit.scorer = mc.newScorer.name"></select>
     </p>
 
 
