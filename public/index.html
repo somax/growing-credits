@@ -22,7 +22,8 @@
 </head>
 <body ng-controller="MainCtrl as mc">
 	<h1>马小宝的 Growing Credits</h1>
-	<h2>当前积分：{{mc.balance}}</h2>
+	<h2>{{ mc.scores.date | date:"yyyy年M月d日"}} 的总积分： {{mc.scores.sum}}</h2>
+	<h3>当月积分：{{ mc.scores.monthly}} | 当天积分：{{ mc.scores.daily}}</h3>
 
 	<p>
 		可选积分规则
@@ -39,6 +40,8 @@
         <input class="btn-primary" type="submit" value="记录">
     </form>
 
+	<hr />
+	<h2>最近 1 周记录 （{{mc.scores.lastweek}}）</h2>
 	<table class="credits-table">
 		<thead>
 			<tr>
