@@ -1,75 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Growing Credits</title>
-	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
-	<style>
-		body{
-			text-align: center;
-			color: #333;
-		}
-		.submit{
-			border-radius: 30px;
-			padding: 13px 40px;
-		}
-		.credits-table{
-		        width: 100%;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Growing Credits</title>
+    <link rel="stylesheet" href="pure-min.css">
+    <link rel="stylesheet" href="grids-responsive-min.css">
+    <style>
+    body {
+        text-align: center;
+        color: #333;
+    }
+    
+    .submit {
+        border-radius: 30px;
+        padding: 13px 40px;
+    }
+    
+    .credits-table {
+        width: 100%;
+    }
+    </style>
 </head>
+
 <body ng-controller="MainCtrl as mc">
+    <h1>马小宝的 Growing Credits</h1>
+    <h2>{{ mc.scores.date | date:"yyyy年M月d日"}} 的总积分： {{mc.scores.sum}}</h2>
+    <h3>当月积分：{{ mc.scores.monthly}} | 当天积分：{{ mc.scores.daily}}</h3>
+    <form class="pure-form pure-form-stacked" ng-submit="mc.addCredit(mc.newCredit)">
+        <div class="pure-g">
 
+            <select class="pure-u-1 pure-u-sm-3-4" ng-model="mc.selectedTerm" ng-options="(term.description + ' (' + term.score +')') for term in mc.terms" ng-change="mc.onTermChange(mc.selectedTerm)" >
+            <option value="">- 可选积分规则 -</option>
+            </select>
 
+            <select class="pure-u-1 pure-u-sm-1-4" ng-model="mc.newScorer" ng-options="scorer.name for scorer in mc.scorers" ng-change="mc.newCredit.scorer = mc.newScorer.name">
+            	<option value="">- 可选记录人 -</option>
+            </select>
 
-	<h1>马小宝的 Growing Credits</h1>
-	<h2>{{ mc.scores.date | date:"yyyy年M月d日"}} 的总积分： {{mc.scores.sum}}</h2>
-	<h3>当月积分：{{ mc.scores.monthly}} | 当天积分：{{ mc.scores.daily}}</h3>
-
-	<form class="pure-form" ng-submit="mc.addCredit(mc.newCredit)">
-	<p>
-		可选积分规则
-		<select ng-model="mc.selectedTerm" ng-options="(term.description + ' (' + term.score +')') for term in mc.terms" ng-change="mc.onTermChange(mc.selectedTerm)" style="width:300px"></select>
-
-        可选记录人：
-        <select ng-model="mc.newScorer" ng-options="scorer.name for scorer in mc.scorers" ng-change="mc.newCredit.scorer = mc.newScorer.name"></select>
-    </p>
-
-        <input type="text" ng-model="mc.newCredit.description" size="50" placeholder="描述">
-        <input type="number" ng-model="mc.newCredit.score" size="4" placeholder="分数" style="width:100px">
-        <input type="text" ng-model="mc.newCredit.scorer" size="6" placeholder="记录人">
-     <p>
-     	
-        <input  class="pure-button pure-button-primary submit" type="submit" value="记录" >
-     </p>
+            <input class="pure-u-1 pure-u-sm-7-12" type="text" ng-model="mc.newCredit.description" size="50" placeholder="描述">
+            <input class="pure-u-1 pure-u-sm-1-6" type="number" ng-model="mc.newCredit.score" size="4" placeholder="分数">
+            <input class="pure-u-1 pure-u-sm-1-4" type="text" ng-model="mc.newCredit.scorer" size="6" placeholder="记录人">
+            <div class="pure-u-1 pure-u-sm-3-8"></div>
+            <input class="pure-button pure-button-primary submit pure-u-1 pure-u-sm-1-4" type="submit" value="记录">
+        </div>
     </form>
-
-	<hr />
-	<h2>最近 1 周记录 （{{mc.scores.lastweek}}）</h2>
-	<table class="pure-table credits-table">
-		<thead>
-			<tr>
-				<th>编号</th>
-				<th>积分时间</th>
-				<th>记入分数</th>
-				<!-- <th>累计分数</th> -->
-				<th>说明</th>
-				<th>记录人</th></tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="credit in mc.credits">
-			<td align="center">{{credit.id}}</td>
-			<td align="center">{{credit.createdTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
-			<td align="right">{{credit.score}}</td>
-			<td align="center">{{credit.description}}</td>
-			<td align="center">{{credit.scorer}}</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<script src="/lib/angular/angular.js"></script>
-	<script src="/app.js"></script>
-
+    <hr />
+    <h2>最近 1 周记录 （{{mc.scores.lastweek}}）</h2>
+    <table class="pure-table credits-table">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>积分时间</th>
+                <th>记入分数</th>
+                <!-- <th>累计分数</th> -->
+                <th>说明</th>
+                <th>记录人</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="credit in mc.credits">
+                <td align="center">{{credit.id}}</td>
+                <td align="center">{{credit.createdTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
+                <td align="right">{{credit.score}}</td>
+                <td align="center">{{credit.description}}</td>
+                <td align="center">{{credit.scorer}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/app.js"></script>
 </body>
+
 </html>

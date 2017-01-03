@@ -91,6 +91,9 @@ function MainCtrl(Credits, Terms, Scores, Scorers) {
 	})
 
 	mc.onTermChange = function (_term) {
+		if(!_term){
+			_term = {description:'',score:0};
+		}
 		mc.newCredit.description = _term.description;
 		mc.newCredit.score = +_term.score;
 	}
